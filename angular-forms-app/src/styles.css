@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+.important {
+  border-style:solid;
+  border-color:#0000A0;
+  background-color:#0000A0;
+  border-width:5px;
+  text-align:center;
+  }

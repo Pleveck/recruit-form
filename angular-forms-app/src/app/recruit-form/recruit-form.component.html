@@ -1,0 +1,70 @@
+<div class="container">
+   <h1 class='important'><img alt="Booz Allen Hamilton" src="../assets/images/booz-allen-logo.png"></h1>
+   <h1>Recruit Form:</h1>
+   <h4>Please fill out the form below</h4>
+   <form #bookForm="ngForm" (ngSubmit)="onSubmit(ngForm.value)"
+   >
+   <div>
+      <label for="fname">First Name:</label>
+      <input type="text" class="form-control" id="fname" required maxlength="70" [(ngModel)]="model.fname" name="fname" #fname="ngModel">
+      <div *ngIf="fname.errors && (fname.dirty || fname.tuched)" class="alart alert-danger">
+         <div [hidden]="!fname.errors.required">
+            First name is required!
+         </div>
+         <div [hidden]="!fname.errors.maxlength">
+            First name cannot be more than 70 characters long.
+         </div>
+      </div>
+   </div>
+   <div>
+      <label for="lname">Last Name:</label>
+      <input tyoe="text" class="form-control" id="lname" required maxlength="70" [(ngModel)]="model.lname" name="lname" #lname="ngModel">
+      <div *ngIf="lname.errors && (lname.dirty || lname.tuched)" class="alart alert-danger">
+         <div [hidden]="!lname.errors.required">
+            Last name is required!
+         </div>
+         <div [hidden]="!lname.errors.maxlength">
+            Last name cannot be more than 70 characters long.
+         </div>
+      </div>
+   </div>
+   <div>
+      <label for="email">Email:</label>
+      <input tyoe="email" class="form-control" id="email" required maxlength="70" [(ngModel)]="model.email" name="email" #email="ngModel">
+      <div *ngIf="email.errors && (email.dirty || email.tuched)" class="alart alert-danger">
+         <div [hidden]="!email.errors.required">
+            Email is required!
+         </div>
+         <div [hidden]="!email.errors.maxlength">
+            Email cannot be more than 70 characters long.
+         </div>
+      </div>
+   </div>
+   <div>
+      <label for="event">Recruting Event:</label>
+      <input type="text" class="form-control" id="event" required maxlength="70" [(ngModel)]="model.event" name="event" #event="ngModel">
+      <div *ngIf="event.errors && (event.dirty || event.tuched)" class="alart alert-danger">
+         <div [hidden]="!event.errors.required">
+            Recruting Event is required!
+         </div>
+         <div [hidden]="!event.errors.maxlength">
+            Recruting Event cannot be more than 70 characters long.
+         </div>
+      </div>
+   </div>
+   <div>
+      <label for="other">Other Info:</label>
+      <textarea type="textarea" rows="3" class="form-control" id="other" maxlength="400" [(ngModel)]="model.other" name="other" #other="ngModel"></textarea>
+      <div *ngIf="other.errors && (other.dirty || other.tuched)" class="alart alert-danger">
+         <div [hidden]="!other.errors.maxlength">
+            Recruting Event cannot be more than 400 characters long.
+         </div>
+      </div>
+   </div>
+   <button type="submit" [disabled]="!bookForm.form.valid" class="btn btn-default">Submit</button>
+   </form>
+   <div>
+      <h2>Model:</h2>
+      {{ currentBook }}
+   </div>
+</div>
